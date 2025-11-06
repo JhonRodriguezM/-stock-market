@@ -1,0 +1,29 @@
+{
+  "acciones": [
+    { 
+        "id": "1", 
+        "ticker": "AKBA",
+        "target_from": "$8.00",
+        "target_to": "$6.00",
+        "company": "Akebia Therapeutics",
+        "action": "target lowered by",
+        "brokerage": "",
+        "rating_from": "Buy",
+        "rating_to": "Buy",
+        "time": "2025-10-31T00:30:06.578227582Z" 
+    },
+    { 
+        "id": "2", 
+        "ticker": "AKBAas",
+        "target_from": "$8.00",
+        "target_to": "$6.00",
+        "company": "Akebia Therapeutics",
+        "action": "target lowered by",
+        "brokerage": "",
+        "rating_from": "Buy",
+        "rating_to": "Buy",
+        "time": "2025-10-31T00:30:06.578227582Z" 
+    }
+    
+  ]
+}
