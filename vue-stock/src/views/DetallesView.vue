@@ -1,21 +1,48 @@
 <script>  
-import { ref } from 'vue';
+import { ref, onMounted} from 'vue';
 import axios from 'axios';  
+import { useRoute } from 'vue-router';
 export default {
   setup(){
-    const Detalles = ref({
-      ticker: '',
-      target_from: '',
-      target_to: '',
-      company: '',
-      action: '',
-      brokerage: '',
-      rating_from: '',
-      rating_to: '',
-      time: ''
+
+        const route = useRoute();
+
+        const Detalles = ref({
+            id:null,
+            ticker: '',
+            target_from: '',
+            target_to: '',
+            company: '',
+            action: '',
+            brokerage: '',
+            rating_from: '',
+            rating_to: '',
+            time: ''
     }); 
+
+    const DetallesStock = async () => {
+       
+    };
+
+    const cargarDetalles = async () => {
+      const StockId = useRoute().params.id;
+        try {
+            const response = await axios.get(`http://localhost:3000/acciones/${StockId}`);
+            Detalles.value = response.data;
+          console.log('Detalles obtenidos:', Detalles.value);
+        } catch (error) {
+          console.error('Error al leer los detalles desde el endpoint:', error);
+        }
+    };
+
+    onMounted(() => {   
+      cargarDetalles();
+    });
+
     return {
-      Detalles
+      Detalles,
+      cargarDetalles,
+      DetallesStock
     };
   }
 };
@@ -23,7 +50,7 @@ export default {
 
 <template>  
     <main>
-        <form>
+        <form @submit.prevent="DetallesStock">
             <div>
                 <div>
                     <label for="titulo">ticker</label>

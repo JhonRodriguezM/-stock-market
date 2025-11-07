@@ -60,7 +60,9 @@ export default {
                     <td>{{ stocks.rating_from }}</td>
                     <td>{{ stocks.rating_to }}</td>
                     <td>{{ stocks.time }}</td>
-                    <td><RouterLink :to="`/detalles/${stocks.id}`">Ver Detalles</RouterLink></td>
+                    <div>
+                      <RouterLink :to="{path:'detalles/'+stocks.id}">Ver Detalles</RouterLink>
+                    </div>
 
                 
                 </tr>

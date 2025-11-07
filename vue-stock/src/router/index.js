@@ -10,7 +10,7 @@ const router = createRouter({
       component: StockView,
     },
     {
-      path: '/detalles',
+      path: '/detalles/:id',
       name: 'detalles',
       component: () => import('../views/DetallesView.vue'),
     },
