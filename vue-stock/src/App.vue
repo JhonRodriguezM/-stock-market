@@ -21,6 +21,11 @@ import { RouterLink, RouterView } from 'vue-router'
 <style scoped>
 .navbar {
   display: flex;
+  margin: 10px auto;
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
   background-color: rgba(0, 0, 0, .1);
   padding: 10px;
   border-bottom: 1px solid #ddd;
@@ -28,8 +33,13 @@ import { RouterLink, RouterView } from 'vue-router'
 .link--navbar {
   margin-right: 20px;
   text-decoration: none;
-  color: #333;
-  font-weight: bold;
+  color: #5c5b5b;
+  font-weight: 600;
+  font-size: 1.5rem;
+  transition: color 0.5s ease-in-out;
+}
+.link--navbar:hover {
+  color: #000000;
 }
 
 </style>

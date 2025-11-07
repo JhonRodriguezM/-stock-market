@@ -24,7 +24,7 @@ export default {
        
     };
 
-    const cargarDetalles = async () => {
+    const listarDetalles = async () => {
       const StockId = useRoute().params.id;
         try {
             const response = await axios.get(`http://localhost:3000/acciones/${StockId}`);
@@ -36,12 +36,12 @@ export default {
     };
 
     onMounted(() => {   
-      cargarDetalles();
+      listarDetalles();
     });
 
     return {
       Detalles,
-      cargarDetalles,
+      listarDetalles,
       DetallesStock
     };
   }
@@ -52,7 +52,8 @@ export default {
     <main>
         <form @submit.prevent="DetallesStock">
             <div>
-                <div>
+                
+                <div>   
                     <label for="titulo">ticker</label>
                     <input name="titulo" v-model="Detalles.ticker" type="text"required placeholder="ticker">
                 </div>
@@ -93,6 +94,35 @@ export default {
     </main>
 </template>
 
-<style>
-
+<style scoped>
+form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 25px auto;
+  padding: 20px;
+  border: solid 1px #000;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+label   {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+    font-size: 1rem;    
+}
+input:focus {
+  outline: none;
+}       
 </style>
